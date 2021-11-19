@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/AusstattungHinzuFragment">
+
+    <fragment
+        android:id="@+id/AusstattungHinzuFragment"
+        android:name="de.fhbielefeld.swe.raumkontrollapp_h.AusstattungHinzuFragment"
+        android:label="@string/ausstattung_hinzu_fragment_label"
+        tools:layout="@layout/fragment_ausstattung_hinzu">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/AusstattungsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AusstattungsDetailFragment"
+        android:name="de.fhbielefeld.swe.raumkontrollapp_h.AusstattungsDetailFragment"
+        android:label="@string/ausstattungs_detail_fragment_label"
+        tools:layout="@layout/fragment_ausstattungs_detail">
+
+        <action
+            android:id="@+id/action_AusstattungsDetailFragment_to_AusstattungHinzuFragment"
+            app:destination="@id/AusstattungHinzuFragment" />
+    </fragment>
+</navigation>
