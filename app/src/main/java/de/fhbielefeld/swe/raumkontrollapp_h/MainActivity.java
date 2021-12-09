@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity {
         buttonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                eingabeRaumNr.setText("");
                 Raum aktuellerRaum = getRaum(eingabeRaumNr.getText().toString());
+                eingabeRaumNr.setText("");
 
                 Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
                 raumAkt.putExtra("Raum", aktuellerRaum);
                 startActivity(raumAkt);
-                // in RaumActivity: aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
             }
         });
     }
