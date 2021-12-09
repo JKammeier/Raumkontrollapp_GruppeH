@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public Raum getRaum (String raumNr) {
         for (Raum aktuellerRaum : raumListe) {
-            if (aktuellerRaum.nr == raumNr) {
+            if (aktuellerRaum.nr.equals(raumNr)) {
                 return aktuellerRaum;
             }
         }
