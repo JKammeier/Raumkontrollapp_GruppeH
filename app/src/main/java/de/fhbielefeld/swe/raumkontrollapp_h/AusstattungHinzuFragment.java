@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.FragmentAusstattungHinzuBinding;
 
 public class AusstattungHinzuFragment extends Fragment {
-
+//Beispiel
     private FragmentAusstattungHinzuBinding binding;
 
     @Override
