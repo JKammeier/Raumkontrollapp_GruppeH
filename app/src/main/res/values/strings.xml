@@ -11,13 +11,20 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="TextView_Raumnummer">Raumnummer: </string>
     <string name="textView_Ausstattung">Ausstattung</string>
-    <string name="textView_Stuehle">Stuehle</string>
+    <string name="textView_Stuehle">Stühle</string>
     <string name="editTextNumber_AnzahlStühle">3</string>
     <string name="textView_Tische">Tische</string>
     <string name="editTextNumber_AnzahlTische">4</string>
     <string name="imageButton_AusstattungHinzufuegen"></string>
     <string name="textView_Eigenschaften">Eigenschaften</string>
     <string name="fab_AusstattungHinzufuegen"></string>
+    <string name="textView_Zimmergroesse">Zimmergröße</string>
+    <string name="textView_ZimmergroesseZahl">20m^2</string>
+
+
+
+
+
 
 
 
