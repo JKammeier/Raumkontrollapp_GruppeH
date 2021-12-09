@@ -37,11 +37,6 @@ public class RaumActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //setSupportActionBar(binding.toolbar);
-
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_raum);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
 
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener() {
@@ -51,12 +46,5 @@ public class RaumActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_raum);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
     }
 }
