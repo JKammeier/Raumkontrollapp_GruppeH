@@ -9,7 +9,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="TextView_Raumnummer">Raumnummer: </string>
+    <string name="TextView_Raumnummer">Raumnummer:  </string>
     <string name="textView_Ausstattung">Ausstattung</string>
     <string name="textView_Stuehle">Stühle</string>
     <string name="editTextNumber_AnzahlStühle">3</string>
@@ -20,7 +20,7 @@
     <string name="fab_AusstattungHinzufuegen"></string>
     <string name="textView_Zimmergroesse">Zimmergröße</string>
     <string name="textView_ZimmergroesseZahl">20m^2</string>
-    <string name="textView_RaumnummerZahl"></string>
+    <string name="textView_RaumnummerZahl">111</string>
 
 
 
