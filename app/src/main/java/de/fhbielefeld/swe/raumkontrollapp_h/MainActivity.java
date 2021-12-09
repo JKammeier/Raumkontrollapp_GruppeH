@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Raum neuerRaum = new Raum();
-        neuerRaum.nr = raumNr;
+        Raum neuerRaum = new Raum(raumNr);
         raumListe.add(neuerRaum);
         return neuerRaum;
     }
