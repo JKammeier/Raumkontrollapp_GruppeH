@@ -25,10 +25,10 @@ public class AusstattungHinzuFragment extends Fragment {
         return binding.getRoot();
 
     }
-
+/*
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-/*
+
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,6 @@ public class AusstattungHinzuFragment extends Fragment {
             }
         });
 */
-    }
 
     @Override
     public void onDestroyView() {

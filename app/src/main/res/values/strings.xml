@@ -20,6 +20,10 @@
     <string name="fab_AusstattungHinzufuegen"></string>
     <string name="textView_Zimmergroesse">Zimmergröße</string>
     <string name="textView_ZimmergroesseZahl">20m^2</string>
+    <string name="textView_RaumnummerZahl"></string>
+
+
+
 
 
 
