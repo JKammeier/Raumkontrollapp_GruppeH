@@ -17,7 +17,9 @@
     <string name="editTextNumber_AnzahlTische">4</string>
     <string name="imageButton_AusstattungHinzufuegen"></string>
     <string name="textView_Eigenschaften">Eigenschaften</string>
-    <string name="textView_Eigenschaften">Eigenschaften</string>
+    <string name="fab_AusstattungHinzufuegen"></string>
+
+
 
 
 
