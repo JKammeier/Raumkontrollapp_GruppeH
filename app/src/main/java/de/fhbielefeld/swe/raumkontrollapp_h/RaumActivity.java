@@ -7,6 +7,9 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,6 +19,11 @@ import androidx.navigation.ui.NavigationUI;
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
 
 public class RaumActivity extends AppCompatActivity {
+
+    ImageButton imageButton_neueAusstattung;
+    TextView textView_Stuehle, textView_Tische, textView_Raumnummer, textView_Eigenschaften,
+            textView_Ausstattung;
+    EditText editText_anzahlStuehle, editText_anzahlTische;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityRaumBinding binding;
