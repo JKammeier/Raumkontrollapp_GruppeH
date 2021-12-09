@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        raumListe = new ArrayList<Raum>();
         Button buttonOpen = findViewById(R.id.ButtonOpen);
         EditText eingabeRaumNr = findViewById(R.id.EingabeRaumNr);
 
@@ -39,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public Raum getRaum (String raumNr) {
-        for (Raum aktuellerRaum : raumListe) {
-            if (aktuellerRaum.nr.equals(raumNr)) {
-                return aktuellerRaum;
+        if (!raumListe.isEmpty()) {
+            for (Raum aktuellerRaum : raumListe) {
+                if (aktuellerRaum.nr.equals(raumNr)) {
+                    return aktuellerRaum;
+                }
             }
         }
 

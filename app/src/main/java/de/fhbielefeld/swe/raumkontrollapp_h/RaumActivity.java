@@ -19,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
 
 public class RaumActivity extends AppCompatActivity {
+    private Raum aktuellerRaum;
 
     ImageButton imageButton_neueAusstattung;
     TextView textView_Stuehle, textView_Tische, textView_Raumnummer, textView_Eigenschaften,
@@ -40,6 +41,8 @@ public class RaumActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_raum);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
 
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
