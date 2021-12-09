@@ -3,11 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_raum.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/content_raum.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.1" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_second.xml" value="0.14375" />
+        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.1984375" />
+        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/raum_activity.xml" value="0.165" />
       </map>
     </option>
   </component>
@@ -16,5 +13,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14002732240437157" />
+      </ProjectState>
+    </option>
   </component>
 </project>
