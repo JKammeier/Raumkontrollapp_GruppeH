@@ -9,10 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.util.ArrayList;
+
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.FragmentAusstattungHinzuBinding;
 
-public class AusstattungHinzuFragment extends Fragment {
-//Beispiel
+public class AusstattungHinzuFragment<raumnr> extends Fragment {
+
+
     private FragmentAusstattungHinzuBinding binding;
 
     @Override
