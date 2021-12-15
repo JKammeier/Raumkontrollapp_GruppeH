@@ -11,37 +11,24 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="61dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="473dp"
         android:text="RaumNummer:"
-        app:layout_constraintBottom_toTopOf="@+id/NeueAusstattung"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/NeueAusstattung"
-        android:layout_width="137dp"
-        android:layout_height="0dp"
+        android:layout_width="141dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="29dp"
         android:text="Neue Ausstattung:"
         app:layout_constraintBottom_toTopOf="@+id/FragetextView3"
         app:layout_constraintStart_toStartOf="@+id/FragetextView3"
         app:layout_constraintTop_toBottomOf="@+id/Raumnummer" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="101dp"
-        android:text="CheckBox"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Raumnummer"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/FragetextView3"
@@ -58,17 +45,16 @@
         android:id="@+id/recyclerView"
         android:layout_width="275dp"
         android:layout_height="0dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="376dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="384dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/sonstiges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="12dp"
         android:layout_marginBottom="7dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -81,11 +67,36 @@
         android:id="@+id/buttonfürsSonstiges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:layout_marginStart="48dp"
         android:layout_marginBottom="254dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/sonstiges"
         app:layout_constraintTop_toBottomOf="@+id/sonstiges" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="171dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Anzahl:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Raumnummer" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:src="@android:drawable/checkbox_on_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Raumnummer"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
