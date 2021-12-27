@@ -2,9 +2,15 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 
 public class Eigenschaft {
 
-    private int Anzahl;
-    private String RaumName;
+    private String name;
+    private int anzahl;
     private String zustand;
+
+    public Eigenschaft (String name, int anzahl, String zustand) {
+        setName(name);
+        setAnzahl(anzahl);
+        setZustand(zustand);
+    }
 
     public String getZustand() {
         return zustand;
@@ -14,19 +20,19 @@ public class Eigenschaft {
         this.zustand = zustand;
     }
 
-    public String getRaumName() {
-        return RaumName;
+    public String getName() {
+        return name;
     }
 
-    public void setRaumName(String raumName) {
-        RaumName = raumName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAnzahl() {
-        return Anzahl;
+        return anzahl;
     }
 
     public void setAnzahl(int anzahl) {
-        Anzahl = anzahl;
+        this.anzahl = anzahl;
     }
 }

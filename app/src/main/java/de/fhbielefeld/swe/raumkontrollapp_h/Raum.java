@@ -3,8 +3,13 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Raum implements Parcelable {
-    String nr;
+
+    private String raumNr;
+    private ArrayList<Eigenschaft> eigenschaftListe;
 
     // Funktionen, die benötigt werden, damit Raum ein Parcelable ist
     @Override
@@ -14,7 +19,7 @@ public class Raum implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(nr);
+        dest.writeString(raumNr);
     }
 
     public static final Parcelable.Creator<Raum> CREATOR = new Parcelable.Creator<Raum>() {
@@ -30,11 +35,21 @@ public class Raum implements Parcelable {
     };
 
     private Raum(Parcel in) {
-        nr = in.readString();
+        raumNr = in.readString();
     }
     //Ende des Parcelable Setups
 
-    public Raum(String nr) {
-        this.nr = nr;
+    public Raum(String raumNr) {
+        setRaumNr(raumNr);
+        eigenschaftListe = new ArrayList<Eigenschaft>();
     }
+
+    public String getRaumNr() {
+        return raumNr;
+    }
+
+    public void setRaumNr(String raumNr) {
+        this.raumNr = raumNr;
+    }
+
 }
