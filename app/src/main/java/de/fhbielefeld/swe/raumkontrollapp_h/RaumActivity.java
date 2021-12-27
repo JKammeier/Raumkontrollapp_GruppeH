@@ -41,7 +41,7 @@ public class RaumActivity extends AppCompatActivity {
         //setSupportActionBar(binding.toolbar);
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
 
-        raumNr.setText(aktuellerRaum.nr);
+        raumNr.setText(aktuellerRaum.getRaumNr());
 
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
