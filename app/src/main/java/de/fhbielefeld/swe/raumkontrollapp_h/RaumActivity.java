@@ -36,7 +36,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_AnzahlStuehle,
             textView_AnzahlTische, textView_Stuehle, textView_Tische,
-            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
+            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung,
+            textView_Zimmergroesse;
     FloatingActionButton fab_AusstattungHinzufuegen;
     ListView listView;
 
@@ -51,6 +52,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        textView_Zimmergroesse = findViewById(R.id. textView_Zimmergroesse);
         textView_RaumnummerZahl = findViewById(R.id.textView_RaumnummerZahl);
         textView_ZimmergroesseZahl = findViewById(R.id.textView_ZimmergroesseZahl);
         textView_AnzahlStuehle = findViewById(R.id.textView_AnzahlStuehle);
@@ -78,12 +80,21 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
                 this, android.R.layout.simple_expandable_list_item_1,arrayList);
         listView.setAdapter(arrayAdapter);
 
-        // Zur Ausstattungsdetailansicht
+        // Von ListView zu Ausstattung_detail
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
                 setContentView(R.layout.fragment_ausstattungs_detail);
+            }
+        });
+
+        // Vom Button unten rechts zu Ausstattung_hinzufügen
+        binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.fragment_ausstattung_hinzu);
             }
         });
 
@@ -94,15 +105,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
-
-        // Button unten rechts
-        binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.fragment_ausstattung_hinzu);
-            }
-        });
+        //textView_ZimmergroesseZahl.setText(aktuellerRaum.zimmergroesse_zahl);
 
 
     }

@@ -19,8 +19,8 @@
     <string name="textView_Eigenschaften">Eigenschaften</string>
     <string name="fab_AusstattungHinzufuegen"></string>
     <string name="textView_Zimmergroesse">Zimmergröße</string>
-    <string name="textView_ZimmergroesseZahl">20m^2</string>
-    <string name="textView_RaumnummerZahl">111</string>
+    <string name="textView_ZimmergroesseZahl"> </string>
+    <string name="textView_RaumnummerZahl"> </string>
     <string name="bearbeiten">Bearbeiten</string>
     <string name="geben_sie_bitte_die_raumnummer_ein_und_dr_cken_sie_unten_um_die_raumeigenschaften_zu_bearbeiten">Geben Sie bitte die Raumnummer ein und drücken sie unten um die Raumeigenschaften zu bearbeiten!</string>
     <string name="textview">TextView</string>
