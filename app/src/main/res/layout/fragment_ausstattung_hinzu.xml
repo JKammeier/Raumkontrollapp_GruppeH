@@ -7,57 +7,87 @@
     tools:context=".AusstattungHinzuFragment">
 
     <TextView
-        android:id="@+id/RaumnummerHinzu"
-        android:layout_width="144dp"
-        android:layout_height="23dp"
+        android:id="@+id/Raumnummer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="473dp"
         android:text="RaumNummer:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="23dp" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/NeueAusstattung"
-        android:layout_width="128dp"
-        android:layout_height="22dp"
+        android:layout_width="141dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="29dp"
         android:text="Neue Ausstattung:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="63dp" />
+        app:layout_constraintBottom_toTopOf="@+id/FragetextView3"
+        app:layout_constraintStart_toStartOf="@+id/FragetextView3"
+        app:layout_constraintTop_toBottomOf="@+id/Raumnummer" />
 
     <TextView
-        android:id="@+id/FragetextWasHinzu"
+        android:id="@+id/FragetextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="242dp"
         android:text="Was möchten Sie hinzufügen?"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintBottom_toTopOf="@+id/sonstiges"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/NeueAusstattung" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="353dp"
-        android:layout_height="207dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="139dp" />
+        android:layout_width="275dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="384dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/sonstiges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="7dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:text="Sonstiges "
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="544dp" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonfürsSonstiges"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/FragetextView3" />
 
     <Button
         android:id="@+id/buttonfürsSonstiges"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="48dp"
         android:layout_marginBottom="254dp"
         android:text="Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/sonstiges"
-        app:layout_constraintTop_toBottomOf="@+id/sonstiges"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/sonstiges" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="171dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Anzahl:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Raumnummer" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -68,16 +98,8 @@
         android:clickable="true"
         android:src="@android:drawable/checkbox_on_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintStart_toEndOf="@+id/Raumnummer"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/EingabeAnzahlHinzu"
-        android:layout_width="160dp"
-        android:layout_height="21dp"
-        android:text="Anzahl: "
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

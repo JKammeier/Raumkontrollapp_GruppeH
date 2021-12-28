@@ -1,11 +1,15 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
+import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.TextureView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,13 +22,15 @@ import androidx.navigation.ui.NavigationUI;
 
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
 
-public class RaumActivity extends AppCompatActivity {
+public class RaumActivity extends AppCompatActivity implements View.OnClickListener
+{
     private Raum aktuellerRaum;
+    String prefNeueAusstattung = "NeueAussattung";
 
-    ImageButton imageButton_neueAusstattung;
-    TextView textView_Stuehle, textView_Tische, textView_Raumnummer, textView_Eigenschaften,
-            textView_Ausstattung;
-    EditText editText_anzahlStuehle, editText_anzahlTische;
+    TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_AnzahlStuehle,
+            textView_AnzahlTische, textView_Stuehle, textView_Tische,
+            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
+    FloatingActionButton fab_AusstattungHinzufuegen;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityRaumBinding binding;
@@ -32,16 +38,36 @@ public class RaumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        TextView raumNr = findViewById(R.id.textView_RaumnummerZahl);
+        textView_RaumnummerZahl = findViewById(R.id.textView_RaumnummerZahl);
+        textView_ZimmergroesseZahl = findViewById(R.id.textView_ZimmergroesseZahl);
+        textView_AnzahlStuehle = findViewById(R.id.textView_AnzahlStuehle);
+        textView_AnzahlTische = findViewById(R.id.textView_AnzahlTische);
+        textView_Stuehle = findViewById(R.id.textView_Stuehle);
+        textView_Tische = findViewById(R.id.textView_Tische);
+        textView_Raumnummer = findViewById(R.id.textView_Raumnummer);
+        textView_Eigenschaften = findViewById(R.id.textView_Eigenschaften);
+        textView_Ausstattung = findViewById(R.id.textView_Ausstattung);
+        fab_AusstattungHinzufuegen = findViewById(R.id.fab_AusstattungHinzufuegen);
+        fab_AusstattungHinzufuegen.setOnClickListener(this);
+
+
+        textView_Eigenschaften.setPaintFlags(textView_Eigenschaften.getPaintFlags()
+        |Paint.UNDERLINE_TEXT_FLAG);
+
 
         //setSupportActionBar(binding.toolbar);
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
+        textView_RaumnummerZahl.setText(aktuellerRaum.nr);
 
-        raumNr.setText(aktuellerRaum.getRaumNr());
+        aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
+        //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
+
+        aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
+        //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
+
 
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +76,62 @@ public class RaumActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void loadRoom()
+    {
+
+    }
+
+    public void safeRoom()
+    {
+
+    }
+
+    // Wenn etwas in neueAusstattung hinzugefügt wurde, ist es wahr oder falsch?
+    public boolean neueAusstattung()
+    {
+        // SharedPreference: Speichern von Inhalten in prefNeueAusstattung
+        SharedPreferences preferences = getSharedPreferences(prefNeueAusstattung, MODE_PRIVATE);
+        // Wenn etwas in prefRaumListe gespeichert ist
+        if (preferences.getBoolean(prefNeueAusstattung, true))
+        {
+            // Wert (boolean) in prefNeueAussattung ändern
+            SharedPreferences.Editor editor = preferences.edit();
+            // Boolean setzen
+            editor.putBoolean(prefNeueAusstattung, false);
+            editor.commit();
+            // Neue Aussattung gefunden
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void createDatabase()
+    {
+
+    }
+
+
+    @Override
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+            case R.id.fab_AusstattungHinzufuegen:
+                setContentView(R.layout.fragment_ausstattung_hinzu);
+                break;
+
+            case R.id.textView_Tische:
+                setContentView(R.layout.fragment_ausstattungs_detail);
+                break;
+
+            case R.id.textView_Stuehle:
+                setContentView(R.layout.fragment_ausstattungs_detail);
+                break;
+        }
     }
 }
