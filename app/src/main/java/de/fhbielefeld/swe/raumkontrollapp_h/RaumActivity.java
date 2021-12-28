@@ -78,6 +78,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
                 this, android.R.layout.simple_expandable_list_item_1,arrayList);
         listView.setAdapter(arrayAdapter);
 
+        // Zur Ausstattungsdetailansicht
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
