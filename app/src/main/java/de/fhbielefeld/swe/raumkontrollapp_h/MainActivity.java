@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 enterRaum(raumListe.get(position));
-                //mainActivity.deleteItem(position);
-                //((ArrayAdapter<String>) lv.getAdapter()).notifyDataSetChanged();
             }
         });
 
