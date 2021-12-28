@@ -39,6 +39,7 @@
                 android:id="@+id/textView_Raumnummer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:gravity="right"
                 android:text="@string/TextView_Raumnummer"
@@ -48,9 +49,9 @@
 
             <TextView
                 android:id="@+id/textView_RaumnummerZahl"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="left"
                 android:text="@string/textView_RaumnummerZahl"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"

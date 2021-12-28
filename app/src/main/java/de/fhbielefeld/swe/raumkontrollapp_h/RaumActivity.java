@@ -60,7 +60,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
         //setSupportActionBar(binding.toolbar);
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
-        textView_RaumnummerZahl.setText(aktuellerRaum.nr);
+        textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
 
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
