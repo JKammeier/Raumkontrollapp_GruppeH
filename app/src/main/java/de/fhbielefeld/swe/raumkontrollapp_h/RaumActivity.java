@@ -53,9 +53,12 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         fab_AusstattungHinzufuegen = findViewById(R.id.fab_AusstattungHinzufuegen);
         fab_AusstattungHinzufuegen.setOnClickListener(this);
 
-
         textView_Eigenschaften.setPaintFlags(textView_Eigenschaften.getPaintFlags()
-        |Paint.UNDERLINE_TEXT_FLAG);
+                |Paint.UNDERLINE_TEXT_FLAG);
+        textView_Ausstattung.setPaintFlags(textView_Ausstattung.getPaintFlags()
+                |Paint.UNDERLINE_TEXT_FLAG);
+        textView_Raumnummer.setPaintFlags(textView_Raumnummer.getPaintFlags()
+                |Paint.UNDERLINE_TEXT_FLAG);
 
 
         //setSupportActionBar(binding.toolbar);
