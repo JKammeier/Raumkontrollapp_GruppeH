@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,14 +44,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Raum aktuellerRaum = getRaum(eingabeRaumNr.getText().toString());
-                raumListView.setAdapter(arrayAdapter);
+                ((ArrayAdapter<String>) raumListView.getAdapter()).notifyDataSetChanged();
                 eingabeRaumNr.setText("");
 
-                Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-                raumAkt.putExtra("Raum", aktuellerRaum);
-                startActivity(raumAkt);
+                enterRaum(aktuellerRaum);
             }
         });
+
+        raumListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                enterRaum(raumListe.get(position));
+                //mainActivity.deleteItem(position);
+                //((ArrayAdapter<String>) lv.getAdapter()).notifyDataSetChanged();
+            }
+        });
+
+    }
+
+    private void enterRaum (Raum zielRaum) {
+        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
+        raumAkt.putExtra("Raum", zielRaum);
+        startActivity(raumAkt);
     }
 
     public Raum getRaum (String raumNr) {
