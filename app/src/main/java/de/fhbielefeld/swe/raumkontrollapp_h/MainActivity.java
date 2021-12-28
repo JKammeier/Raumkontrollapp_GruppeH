@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
+    private ArrayAdapter arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +36,14 @@ public class MainActivity extends AppCompatActivity {
         eingabeRaumNr = findViewById(R.id.EingabeRaumNr);
         raumListView = findViewById(R.id.RaumListView);
 
-        ArrayList<String> testList = new ArrayList<>();
-        testList.add("test1");
-        testList.add("test2");
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, testList);
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, raumListe);
         raumListView.setAdapter(arrayAdapter);
 
         buttonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Raum aktuellerRaum = getRaum(eingabeRaumNr.getText().toString());
+                raumListView.setAdapter(arrayAdapter);
                 eingabeRaumNr.setText("");
 
                 Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);

@@ -52,4 +52,8 @@ public class Raum implements Parcelable {
         this.raumNr = raumNr;
     }
 
+    @Override
+    public String toString() {
+        return getRaumNr();
+    }
 }
