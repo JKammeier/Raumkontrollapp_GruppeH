@@ -16,6 +16,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button buttonOpen;
+    EditText eingabeRaumNr;
+    ListView raumListView;
+
     private ArrayList<Raum> raumListe;
     private ArrayAdapter<String> arad;
     private ArrayList<String> raumNrListe;
@@ -28,12 +32,16 @@ public class MainActivity extends AppCompatActivity {
         raumListe = new ArrayList<Raum>();
         raumNrListe = new ArrayList<String>();
 
-        Button buttonOpen = findViewById(R.id.ButtonOpen);
-        EditText eingabeRaumNr = findViewById(R.id.EingabeRaumNr);
-        ListView raumListView = findViewById(R.id.RaumListView);
+        buttonOpen = findViewById(R.id.ButtonOpen);
+        eingabeRaumNr = findViewById(R.id.EingabeRaumNr);
+        raumListView = findViewById(R.id.RaumListView);
 
-        //arad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, raumNrListe);
-        //(raumListView);
+        ArrayList<String> testList = new ArrayList<>();
+        testList.add("test1");
+        testList.add("test2");
+
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, testList);
+        raumListView.setAdapter(arrayAdapter);
 
         buttonOpen.setOnClickListener(new View.OnClickListener() {
             @Override
