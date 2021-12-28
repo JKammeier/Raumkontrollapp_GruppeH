@@ -1,5 +1,6 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -64,15 +65,16 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         //setSupportActionBar(binding.toolbar);
         aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
         textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
+
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
+
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
 
 
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                setContentView(R.layout.fragment_ausstattung_hinzu);
             }
         });
     }

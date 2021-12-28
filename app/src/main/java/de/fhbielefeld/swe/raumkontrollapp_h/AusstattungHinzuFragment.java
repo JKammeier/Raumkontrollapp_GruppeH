@@ -22,7 +22,7 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState)
     {
-
+        super.onCreate(savedInstanceState);
         binding = FragmentAusstattungHinzuBinding.inflate(inflater, container, false);
         return binding.getRoot();
 

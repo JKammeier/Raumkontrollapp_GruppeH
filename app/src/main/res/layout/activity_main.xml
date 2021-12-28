@@ -37,7 +37,7 @@
     <ListView
         android:id="@+id/RaumListView"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="250dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="0dp"

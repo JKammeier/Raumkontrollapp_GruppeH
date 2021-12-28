@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     ListView raumListView;
 
     private ArrayList<Raum> raumListe;
-    private ArrayAdapter<String> arad;
     private ArrayList<String> raumNrListe;
 
     @Override
