@@ -20,10 +20,8 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
     private FragmentAusstattungHinzuBinding binding;
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    )
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState)
     {
 
         binding = FragmentAusstattungHinzuBinding.inflate(inflater, container, false);
