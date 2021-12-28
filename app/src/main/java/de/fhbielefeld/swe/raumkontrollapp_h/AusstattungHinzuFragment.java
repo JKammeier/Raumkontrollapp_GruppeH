@@ -15,9 +15,8 @@ import de.fhbielefeld.swe.raumkontrollapp_h.databinding.FragmentAusstattungHinzu
 
 public class AusstattungHinzuFragment<raumnr> extends Fragment {
 
-
-
     private FragmentAusstattungHinzuBinding binding;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
