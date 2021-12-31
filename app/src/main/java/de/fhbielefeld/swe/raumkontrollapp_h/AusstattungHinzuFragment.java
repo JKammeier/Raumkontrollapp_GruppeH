@@ -49,16 +49,18 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
         Button fu = (Button) findViewById(R.id.buttonfürsSonstiges);
 
 
-
+// von OK Button zurück zu raumactivity
         fu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 so.setText(so.getText().toString());
+                setContentView(R.layout.activity_raum);
 
             }
 
 
         });
+
 
 
 
@@ -70,9 +72,7 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
     private TextView findViewById(int raumnummerHinzu) {
         return null;
     }
-    private FloatingActionButton findViewById(double bestätigungsButton){
-        return null;
-    }
+
 
 
     private void setContentView(int fragment_ausstattung_hinzu) {
