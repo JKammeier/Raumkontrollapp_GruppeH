@@ -13,7 +13,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
     private ArrayAdapter arrayAdapter;
+
+    private DocumentReference mDocRef = FirebaseFirestore.getInstance().document("raeume/testRaum");
+    private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
         Raum neuerRaum = new Raum(raumNr);
         raumListe.add(neuerRaum);
         raumNrListe.add(raumNr);
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+        dataToSave.put("raumNr", raumNr);
+        //dataToSave.put("eigenschaftListe", neuerRaum.getEigenschaftListe());
+        raumListeFirebase.document(raumNr).set(dataToSave);
+        raumListeFirebase.document(raumNr).collection("eigenschaftListe");
         return neuerRaum;
     }
 }
