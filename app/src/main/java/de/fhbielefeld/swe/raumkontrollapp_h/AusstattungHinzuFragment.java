@@ -7,14 +7,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import java.util.ArrayList;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.FragmentAusstattungHinzuBinding;
 
@@ -31,6 +30,7 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
         binding = FragmentAusstattungHinzuBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
+
     }
 
     @Override
@@ -40,30 +40,37 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
         setContentView(R.layout.fragment_ausstattung_hinzu);
 
         TextView rn = findViewById(R.id.RaumnummerHinzu);
-        TextView na = findViewById(R.id.NeueAusstattung);
+
         TextView fg = findViewById(R.id.FragetextWasHinzu);
         TextView an = findViewById(R.id.EingabeAnzahlHinzu);
-        //casting vorgeschlagt
+        //casting vorgeschlagen
         EditText so = (EditText) findViewById(R.id.sonstiges);
         //cast
         Button fu = (Button) findViewById(R.id.buttonfürsSonstiges);
 
-        fu.setOnClickListener(new View.OnClickListener()
-        {
+
+
+        fu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 so.setText(so.getText().toString());
 
             }
 
 
         });
+
+
+
+
     }
 
 
 //methode
     private TextView findViewById(int raumnummerHinzu) {
+        return null;
+    }
+    private FloatingActionButton findViewById(double bestätigungsButton){
         return null;
     }
 
