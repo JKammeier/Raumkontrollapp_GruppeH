@@ -8,75 +8,92 @@
 
     <TextView
         android:id="@+id/RaumnummerHinzu"
-        android:layout_width="126dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="38dp"
-        android:text="RaumNummer:"
-        app:layout_constraintBottom_toTopOf="@+id/FragetextWasHinzu"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="171dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="48dp"
+        android:text="Raumnummer :"
+        app:layout_constraintBottom_toTopOf="@+id/WasmöchtenSie"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/FragetextWasHinzu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="38dp"
-        android:text="Was möchten Sie hinzufügen?"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RaumnummerHinzu" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="348dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/EingabeAnzahlHinzu"
-        app:layout_constraintEnd_toEndOf="@+id/buttonfürsSonstiges"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FragetextWasHinzu" />
+        android:id="@+id/textView3Hinzu"
+        android:layout_width="176dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="49dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/WasmöchtenSie"
+        app:layout_constraintStart_toEndOf="@+id/RaumnummerHinzu"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/sonstiges"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="142dp"
+        android:id="@+id/WasmöchtenSie"
+        android:layout_width="207dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="576dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Sonstiges "
+        android:text="Was möchten Sie hinzufügen ?"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/EingabeAnzahlHinzu"
-        app:layout_constraintVertical_bias="0.838" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3Hinzu" />
 
-    <Button
-        android:id="@+id/buttonfürsSonstiges"
+    <EditText
+        android:id="@+id/NumberHinzu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="254dp"
-        android:text="Ok"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/sonstiges"
-        app:layout_constraintTop_toBottomOf="@+id/sonstiges"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginStart="89dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Wie Viel Stück ?"
+        app:layout_constraintBottom_toTopOf="@+id/ZustandHinzu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/EingabeAnzahlHinzu"
-        android:layout_width="144dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="314dp"
-        android:text="Anzahl: "
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/ZustandHinzu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="44dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Zustand "
+        app:layout_constraintBottom_toTopOf="@+id/Sonstiges"
+        app:layout_constraintEnd_toEndOf="@+id/NumberHinzu" />
+
+    <EditText
+        android:id="@+id/Sonstiges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginEnd="113dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sonstiges"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        tools:layout_editor_absoluteY="344dp" />
+
+    <Button
+        android:id="@+id/buttonHinzu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="173dp"
+        android:text="Hinzufügen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Sonstiges"
+        app:layout_constraintTop_toBottomOf="@+id/Sonstiges" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
