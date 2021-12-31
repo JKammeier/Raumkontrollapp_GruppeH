@@ -1,14 +1,11 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -16,20 +13,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.TextureView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +30,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 {
     //private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
     private DocumentReference raum;
-    private ArrayList<String> eigenschaftListe;
+    private ArrayList<String> ausstattungsListe;
     private ArrayAdapter arrayAdapter;
 
     private Raum aktuellerRaum;
@@ -91,8 +81,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter arrayAdapter = new ArrayAdapter(
                 this, android.R.layout.simple_expandable_list_item_1,arrayList);
         listView.setAdapter(arrayAdapter);*/
-        eigenschaftListe = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, eigenschaftListe);
+        ausstattungsListe = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ausstattungsListe);
         listView.setAdapter(arrayAdapter);
 
         // Von ListView zu Ausstattung_detail
@@ -130,18 +120,17 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void getEigenschaftenFirebase() {
-        raum.collection("eigenschaften").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        raum.collection("ausstattung").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
                 for (DocumentSnapshot doc: snapshotList) {
                     //raumListe.add(doc.toObject(Raum.class));
-                    eigenschaftListe.add(doc.getId());
+                    ausstattungsListe.add(doc.getId());
                 }
                 arrayAdapter.notifyDataSetChanged();
             }
         });
-
     }
 
     public void createDatabase()
