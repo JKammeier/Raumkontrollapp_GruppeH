@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +33,9 @@ import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
 
 public class RaumActivity extends AppCompatActivity implements View.OnClickListener
 {
+    private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
+
+
     private Raum aktuellerRaum;
     String prefNeueAusstattung = "NeueAussattung";
 
@@ -101,8 +106,10 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
         // Raumnummer etc. von MainActivity übergeben
         //setSupportActionBar(binding.toolbar);
-        aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
-        textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
+        String raumNr = getIntent().getExtras().getString("RaumNr");
+        //aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
+        //textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
+        textView_RaumnummerZahl.setText(raumNr);
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
         //textView_ZimmergroesseZahl.setText(aktuellerRaum.zimmergroesse_zahl);
