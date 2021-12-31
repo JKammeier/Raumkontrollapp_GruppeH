@@ -16,10 +16,8 @@ public class AusstattungsDetailFragment extends Fragment {
     private FragmentAusstattungsDetailBinding binding;
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
 
         binding = FragmentAusstattungsDetailBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -32,8 +30,7 @@ public class AusstattungsDetailFragment extends Fragment {
         binding.button00.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(AusstattungsDetailFragment.this)
-                        .navigate(R.id.action_AusstattungsDetailFragment_to_AusstattungHinzuFragment);
+                NavHostFragment.findNavController(AusstattungsDetailFragment.this).navigate(R.id.action_AusstattungsDetailFragment_to_AusstattungHinzuFragment);
             }
         });
     }
