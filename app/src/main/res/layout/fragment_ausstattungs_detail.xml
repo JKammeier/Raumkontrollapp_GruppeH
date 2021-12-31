@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:clickable="true"
     android:focusable="true"
+    android:background="#3000B0FF"
     android:padding="20dp"
     tools:context=".AusstattungsDetailFragment">
 
@@ -18,7 +19,7 @@
         android:orientation="vertical"
         android:padding="10dp"
         android:layout_margin="10dp"
-        android:background="@drawable/rounded_corner"/>
+        android:background="@drawable/rounded_corner">
 
     <TextView
         android:id="@+id/textView_01"
@@ -26,53 +27,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titletextview"
-        android:text="geben_sie_bitte_die_raumnummer_ein_und_dr_cken_sie_unten_um_die_raumeigenschaften_zu_bearbeiten"
+        android:text="Raumnummer: muss importiert werden"
         android:textColor="@color/black"
-        android:android.textSize="25dp"
         android:gravity="center"
+        android:android.textSize="25dp"
+        android:padding="10dp"
         android:android.layout_margin="20dp"
         />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:text="Raumnummer:"
-        android:textColor="@color/black"
-        app:barrierAllowsGoneWidgets="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.429" />
 
-    <Button
-        android:id="@+id/button_00"
-        android:layout_width="188dp"
-        android:layout_height="95dp"
-        android:layout_marginBottom="204dp"
-        android:backgroundTint="@color/teal_200"
-        android:clickable="true"
-        android:focusable="true"
-        android:keepScreenOn="true"
-        android:text="@string/bearbeiten"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:visibility="visible"
-        app:icon="@android:drawable/ic_menu_edit"
-        app:iconGravity="textTop"
-        app:iconTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.142"
-        tools:visibility="visible" />
+
+    </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bestätigen"
+            android:layout_gravity="center"
+            android:backroundTint="@color/white"
+            />
+
 
 </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 
 
