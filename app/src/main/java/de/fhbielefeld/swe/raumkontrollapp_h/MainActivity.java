@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     //Raum aktuellerRaum = getRaum(eingabeRaumNr.getText().toString());
                     //getRaeumeFirebase();
                     arrayAdapter.notifyDataSetChanged();
-                    eingabeRaumNr.setText("");
+                    //eingabeRaumNr.setText("");
 
                     //enterRaum(aktuellerRaum)
                     enterRaum(eingabeRaumNr.getText().toString());
@@ -90,18 +90,24 @@ public class MainActivity extends AppCompatActivity {
     */
 
     private void enterRaum (String zielRaumNr) {
-        raumListeFirebase.document(zielRaumNr).get().addOnCanceledListener(new OnCanceledListener() {
-            @Override
-            public void onCanceled() {
-                Map<String, Object> dataToSave = new HashMap<String, Object>();
-                dataToSave.put("raumNr", zielRaumNr);
-                raumListeFirebase.document(zielRaumNr).set(dataToSave);
-                raumListeFirebase.document(zielRaumNr).collection("eigenschaftListe");
+        boolean existiert = false;
+        for (String nr: raumNrListe) {
+            if (nr.equals(zielRaumNr)) {
+                Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
+                raumAkt.putExtra("RaumNr", zielRaumNr);
+                existiert = true;
             }
-        });
+        }
 
-        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-        raumAkt.putExtra("RaumNr", zielRaumNr);
+        if (!existiert) {
+            Map<String, Object> dataToSave = new HashMap<String, Object>();
+            dataToSave.put("raumNr", zielRaumNr);
+            raumListeFirebase.document(zielRaumNr).set(dataToSave);
+            raumListeFirebase.document(zielRaumNr).collection("eigenschaftListe");
+
+            Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
+            raumAkt.putExtra("RaumNr", zielRaumNr);
+        }
     }
 
     /*
