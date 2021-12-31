@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     */
 
     private void enterRaum (String zielRaumNr) {
+        eingabeRaumNr.setText("");
         boolean existiert = false;
         for (String nr: raumNrListe) {
             if (nr.equals(zielRaumNr)) {
@@ -98,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (!existiert) {
+            raumNrListe.add(zielRaumNr);
+            arrayAdapter.notifyDataSetChanged();
+
             Map<String, Object> dataToSave = new HashMap<String, Object>();
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
