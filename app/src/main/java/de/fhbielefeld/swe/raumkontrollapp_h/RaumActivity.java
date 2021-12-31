@@ -5,10 +5,14 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,13 +32,16 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
 
 public class RaumActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
-
+    //private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
+    private DocumentReference raum;
+    private ArrayList<String> eigenschaftListe;
+    private ArrayAdapter arrayAdapter;
 
     private Raum aktuellerRaum;
     String prefNeueAusstattung = "NeueAussattung";
@@ -49,7 +56,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
     private AppBarConfiguration appBarConfiguration;
     private ActivityRaumBinding binding;
 
-
+    private String raumNr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,12 +84,15 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
                 |Paint.UNDERLINE_TEXT_FLAG);
 
         listView = (ListView)findViewById(R.id.listview);
-        ArrayList<String> arrayList = new ArrayList<>();
+        /*ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("test1");
         arrayList.add("test2");
         arrayList.add("test2");
         ArrayAdapter arrayAdapter = new ArrayAdapter(
                 this, android.R.layout.simple_expandable_list_item_1,arrayList);
+        listView.setAdapter(arrayAdapter);*/
+        eigenschaftListe = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, eigenschaftListe);
         listView.setAdapter(arrayAdapter);
 
         // Von ListView zu Ausstattung_detail
@@ -106,14 +116,31 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
         // Raumnummer etc. von MainActivity übergeben
         //setSupportActionBar(binding.toolbar);
-        String raumNr = getIntent().getExtras().getString("RaumNr");
+        raumNr = getIntent().getExtras().getString("RaumNr");
+        raum = FirebaseFirestore.getInstance().document("raeume/" + raumNr);
         //aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
         //textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
-        textView_RaumnummerZahl.setText(raumNr);
+        textView_RaumnummerZahl.setText(raum.getId());
+        getEigenschaftenFirebase();
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
         //textView_ZimmergroesseZahl.setText(aktuellerRaum.zimmergroesse_zahl);
 
+
+    }
+
+    public void getEigenschaftenFirebase() {
+        raum.collection("eigenschaften").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                for (DocumentSnapshot doc: snapshotList) {
+                    //raumListe.add(doc.toObject(Raum.class));
+                    eigenschaftListe.add(doc.getId());
+                }
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
