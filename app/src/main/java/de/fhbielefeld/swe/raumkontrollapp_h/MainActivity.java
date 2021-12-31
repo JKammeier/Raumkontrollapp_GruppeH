@@ -93,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
         boolean existiert = false;
         for (String nr: raumNrListe) {
             if (nr.equals(zielRaumNr)) {
-                Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-                raumAkt.putExtra("RaumNr", zielRaumNr);
                 existiert = true;
             }
         }
@@ -104,10 +102,11 @@ public class MainActivity extends AppCompatActivity {
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
             raumListeFirebase.document(zielRaumNr).collection("eigenschaftListe");
-
-            Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-            raumAkt.putExtra("RaumNr", zielRaumNr);
         }
+
+        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
+        raumAkt.putExtra("RaumNr", zielRaumNr);
+        startActivity(raumAkt);
     }
 
     /*
