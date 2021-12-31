@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031216912295",
+    "project_id": "raumkontrollapp-h",
+    "storage_bucket": "raumkontrollapp-h.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031216912295:android:14cd5c8cbd47c113698882",
+        "android_client_info": {
+          "package_name": "de.fhbielefeld.swe.raumkontrollapp_h"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031216912295-qaqur4smrr72knofrrqjaobhhr7cmgk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmyPYkQ4TtDYltOLZTVIBfiR53ogFkHcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031216912295-qaqur4smrr72knofrrqjaobhhr7cmgk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

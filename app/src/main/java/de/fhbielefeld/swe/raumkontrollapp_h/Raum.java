@@ -39,6 +39,10 @@ public class Raum implements Parcelable {
     }
     //Ende des Parcelable Setups
 
+    public Raum() {
+        //setRaumNr("default");
+    }
+
     public Raum(String raumNr) {
         setRaumNr(raumNr);
         eigenschaftListe = new ArrayList<Eigenschaft>();
