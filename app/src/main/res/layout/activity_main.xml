@@ -6,42 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/ButtonOpen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="311dp"
-        android:text="Öffnen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/EingabeRaumNr"
-        app:layout_constraintTop_toBottomOf="@+id/EingabeRaumNr" />
-
     <EditText
         android:id="@+id/EingabeRaumNr"
         android:layout_width="126dp"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
         android:layout_marginTop="250dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginBottom="62dp"
         android:ems="10"
         android:hint="Raum Nr"
         android:inputType="text"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/ButtonOpen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <Button
+        android:id="@+id/ButtonOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="55dp"
+        android:text="Öffnen"
+        app:layout_constraintBottom_toTopOf="@+id/RaumListView"
+        app:layout_constraintStart_toStartOf="@+id/EingabeRaumNr"
+        app:layout_constraintTop_toBottomOf="@+id/EingabeRaumNr" />
+
     <ListView
         android:id="@+id/RaumListView"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
