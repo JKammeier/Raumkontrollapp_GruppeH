@@ -24,6 +24,8 @@
     <string name="bearbeiten">Bearbeiten</string>
     <string name="geben_sie_bitte_die_raumnummer_ein_und_dr_cken_sie_unten_um_die_raumeigenschaften_zu_bearbeiten">Geben Sie bitte die Raumnummer ein und drücken sie unten um die Raumeigenschaften zu bearbeiten!</string>
     <string name="textview">TextView</string>
+    <string name="Ausstattungen_listView"></string>
+
 
 
 </resources>
