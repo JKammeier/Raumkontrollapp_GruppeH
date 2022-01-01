@@ -3,6 +3,14 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,16 +18,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import androidx.navigation.ui.AppBarConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,6 +115,10 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         //textView_ZimmergroesseZahl.setText(aktuellerRaum.zimmergroesse_zahl);
 
 
+    }
+
+    public DocumentReference getRaum() {
+        return raum;
     }
 
     public void getEigenschaftenFirebase() {
