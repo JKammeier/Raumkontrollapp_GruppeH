@@ -71,7 +71,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         textView_Raumnummer.setPaintFlags(textView_Raumnummer.getPaintFlags()
                 |Paint.UNDERLINE_TEXT_FLAG);
 
-        listView = (ListView)findViewById(R.id.listview);
+        listView = (ListView)findViewById(R.id.Ausstattungen_listView);
         /*ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("test1");
         arrayList.add("test2");
