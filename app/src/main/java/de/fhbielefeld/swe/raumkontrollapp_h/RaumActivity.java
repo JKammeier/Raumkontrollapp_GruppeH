@@ -92,6 +92,18 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                raum.collection("ausstattung").document(ausstattungsListe.get(position)).delete();
+
+                ausstattungsListe.remove(position);
+                arrayAdapter.notifyDataSetChanged();
+
+                return false;
+            }
+        });
+
         // Vom Button unten rechts zu Ausstattung_hinzufügen
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener()
         {
