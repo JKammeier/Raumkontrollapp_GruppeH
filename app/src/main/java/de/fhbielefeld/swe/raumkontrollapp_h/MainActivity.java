@@ -30,9 +30,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonOpen;
-    EditText eingabeRaumNr;
-    ListView raumListView;
+    private Button buttonOpen;
+    private EditText eingabeRaumNr;
+    private ListView raumListView;
 
     //private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
