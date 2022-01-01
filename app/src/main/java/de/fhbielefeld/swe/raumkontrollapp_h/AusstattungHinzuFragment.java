@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,44 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
         return binding.getRoot();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_ausstattung_hinzu);
+
+        TextView rn = findViewById(R.id.RaumnummerHinzu);
+        TextView th = findViewById(R.id.textView3Hinzu);
+        EditText wm = (EditText) findViewById(R.id.WasmöchtenSie);
+        EditText mh = (EditText) findViewById(R.id.NumberHinzu);
+        EditText zh = (EditText) findViewById(R.id.ZustandHinzu);
+        EditText so = (EditText) findViewById(R.id.Sonstiges);
+        Button hinzu = (Button) findViewById(R.id.buttonHinzu);
+
+        hinzu.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                rn.setText(wm.getText().toString());
+                //wm.setText("");
+                th.setText(wm.getText().toString());
+                //wm.setText("");
+                mh.setText("");
+                zh.setText("");
+                so.setText("");
+
+
+            }
+        });
+    }
+
+    private TextView findViewById(int raumnummerHinzu) {
+        return null;
+    }
+
+    private void setContentView(int fragment_ausstattung_hinzu) {
+    }
 
     @Override
     public void onDestroyView() {
