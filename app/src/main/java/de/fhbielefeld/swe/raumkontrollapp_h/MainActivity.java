@@ -79,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        raumListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                raumListeFirebase.document(raumNrListe.get(position)).delete();
+
+                raumNrListe.remove(position);
+                arrayAdapter.notifyDataSetChanged();
+
+                return false;
+            }
+        });
+
     }
 
     /*
