@@ -59,6 +59,8 @@ public class AusstattungHinzuFragment<raumnr> extends Fragment {
                 zh.setText("");
                 so.setText("");
 
+          // Vom ButtonHinzufügen  zurück zu Raumactivity
+                setContentView(R.layout.activity_raum);
 
             }
         });
