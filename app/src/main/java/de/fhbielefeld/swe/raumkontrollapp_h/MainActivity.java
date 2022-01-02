@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-        raumAkt.putExtra("RaumNr", zielRaumNr);
+        Intent raumAct = new Intent(MainActivity.this, RaumActivity.class);
+        raumAct.putExtra("raumNr", zielRaumNr);
 
         if (!existiert) {
             raumNrListe.add(zielRaumNr);
@@ -122,13 +122,13 @@ public class MainActivity extends AppCompatActivity {
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
             raumListeFirebase.document(zielRaumNr).collection("ausstattung");
-            raumAkt.putExtra("raumNeu", true);
+            raumAct.putExtra("raumNeu", true);
 
         } else {
-            raumAkt.putExtra("raumNeu", false);
+            raumAct.putExtra("raumNeu", false);
         }
 
-        startActivity(raumAkt);
+        startActivity(raumAct);
     }
 
     public void getRaeumeFirebase() {

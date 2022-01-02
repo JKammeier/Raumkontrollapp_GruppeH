@@ -53,13 +53,13 @@ public class AusstattungHinzuActivity extends AppCompatActivity {
                     dataToSave.put("name", nameET.getText().toString());
                     //if (Integer.parseInt(anzahlET.getText().toString()) == 0 || Integer.parseInt(anzahlET.getText().toString()))
                     dataToSave.put("anzahl", Integer.parseInt(anzahlET.getText().toString()));
-                    dataToSave.put("zustand", kommentarET.getText().toString());
+                    dataToSave.put("kommentar", kommentarET.getText().toString());
                     ausstattungsListe.document(nameET.getText().toString()).set(dataToSave);
 
                     // Vom ButtonHinzufügen  zurück zu Raumactivity
-                    Intent raumAkt = new Intent(AusstattungHinzuActivity.this, RaumActivity.class);
-                    raumAkt.putExtra("RaumNr", raumNr);
-                    startActivity(raumAkt);
+                    Intent raumAct = new Intent(AusstattungHinzuActivity.this, RaumActivity.class);
+                    raumAct.putExtra("raumNr", raumNr);
+                    startActivity(raumAct);
                 }
             }
         });

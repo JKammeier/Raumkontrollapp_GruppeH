@@ -39,7 +39,6 @@
     <EditText
         android:id="@+id/editTextNumber_counter"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
@@ -49,7 +48,7 @@
         android:inputType="number"
         android:minHeight="48dp"
         android:orientation="horizontal"
-        android:text="@string/editTextNumber_counter"
+        android:hint="@string/editTextNumber_counter"
         android:textSize="20dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
@@ -77,14 +76,14 @@
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/ItemViewer"
+        android:id="@+id/GegenstandTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="420dp"
         android:gravity="center"
-        android:text="Gegenstand"
+        android:text="Gegenstand: "
         android:textSize="25dp" />
 
     <TextView
@@ -93,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="70dp"
-        android:text="Kommentar"
+        android:text="Kommentar:"
         android:textSize="25dp"
         app:layout_anchorGravity="center" />
 

@@ -2,26 +2,35 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AusstattungDetailActivity extends AppCompatActivity
 {
-    EditText editTextNumber_counter, editText_Kommentar;
-    TextView counterTxt, value, raumnummer, ConditionView, textView_Raumnummer, ItemViewer;
-    Button minusBtn, plusBtn, resetBtn, move, confirmBtn, button_abbrechen;
+    EditText editTextNumber_counter, kommentarET;
+    TextView counterTxt, value, raumnummer, ConditionView, textView_Raumnummer, ItemViewer, gegenstandTV;
+    Button minusBtn, plusBtn, resetBtn, move, confirmBtn, abbrechenBt, bestaetigenBt;
     private int counter;
     int count = 0;
     private String raumNr;
-    private DocumentReference raum;
+    private String gegenstandName;
+
+    private DocumentReference gegenstand;
 
 
 
@@ -47,21 +56,49 @@ public class AusstattungDetailActivity extends AppCompatActivity
 
         raumnummer = findViewById(R.id.raumnummer);
         counterTxt = (TextView) findViewById(R.id.editTextNumber_counter);
+        gegenstandTV = findViewById(R.id.GegenstandTV);
+        kommentarET = findViewById(R.id.editText_Kommentar);
+        bestaetigenBt = findViewById(R.id.confirmBtn);
+        abbrechenBt = findViewById(R.id.button_abbrechen);
 
         raumNr = getIntent().getExtras().getString("raumNr");
-        raum = FirebaseFirestore.getInstance().document("raeume/" + raumNr);
+        gegenstandName = getIntent().getExtras().getString("gegenstandName");
+        gegenstand = FirebaseFirestore.getInstance().document("raeume/" + raumNr + "/ausstattung/" + gegenstandName);
+
         raumnummer.setText(raumNr);
+        gegenstandTV.setText("Gegenstand: " + gegenstandName);
+        gegenstand.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    counterTxt.setText(documentSnapshot.get("anzahl").toString());
+                    kommentarET.setText(documentSnapshot.get("kommentar").toString());
+                }
+            }
+        });
 
+        bestaetigenBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> dataToSave = new HashMap<String, Object>();
+                dataToSave.put("anzahl", Integer.parseInt(counterTxt.getText().toString()));
+                dataToSave.put("kommentar", kommentarET.getText().toString());
+                gegenstand.update(dataToSave);
 
+                Intent raumAct = new Intent (AusstattungDetailActivity.this, RaumActivity.class);
+                raumAct.putExtra("raumNr", raumNr);
+                startActivity(raumAct);
+            }
+        });
 
-
-
-
-
-
-
-
-
+        abbrechenBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent raumAct = new Intent (AusstattungDetailActivity.this, RaumActivity.class);
+                raumAct.putExtra("raumNr", raumNr);
+                startActivity(raumAct);
+            }
+        });
 
 
 /*

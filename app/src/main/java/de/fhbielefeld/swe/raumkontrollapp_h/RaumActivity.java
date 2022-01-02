@@ -73,7 +73,7 @@ public class RaumActivity extends AppCompatActivity
         listView.setAdapter(arrayAdapter);
 
         // Raumnummer etc. von MainActivity übernehmen
-        raumNr = getIntent().getExtras().getString("RaumNr");
+        raumNr = getIntent().getExtras().getString("raumNr");
         raum = FirebaseFirestore.getInstance().document("raeume/" + raumNr);
         textView_RaumnummerZahl.setText(raum.getId());
 
@@ -89,9 +89,10 @@ public class RaumActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-                Intent detailact = new Intent(RaumActivity.this,AusstattungDetailActivity.class);
-                detailact.putExtra("raumNr", raumNr);
-                startActivity(detailact);
+                Intent detailAct = new Intent(RaumActivity.this,AusstattungDetailActivity.class);
+                detailAct.putExtra("raumNr", raumNr);
+                detailAct.putExtra("gegenstandName", ausstattungsListe.get(position));
+                startActivity(detailAct);
             }
         });
 
@@ -113,9 +114,9 @@ public class RaumActivity extends AppCompatActivity
         {
             @Override
             public void onClick(View view) {
-                Intent hinzuAkt = new Intent(RaumActivity.this, AusstattungHinzuActivity.class);
-                hinzuAkt.putExtra("raumNr", raum.getId());
-                startActivity(hinzuAkt);
+                Intent hinzuAct = new Intent(RaumActivity.this, AusstattungHinzuActivity.class);
+                hinzuAct.putExtra("raumNr", raum.getId());
+                startActivity(hinzuAct);
             }
         });
 
