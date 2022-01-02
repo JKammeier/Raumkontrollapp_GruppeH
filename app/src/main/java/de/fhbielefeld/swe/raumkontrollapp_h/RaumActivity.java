@@ -52,7 +52,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        textView_Zimmergroesse = findViewById(R.id. textView_Zimmergroesse);
+        textView_Zimmergroesse = findViewById(R.id. textView_ZimmergroesseZahl);
         textView_RaumnummerZahl = findViewById(R.id.textView_RaumnummerZahl);
         textView_ZimmergroesseZahl = findViewById(R.id.textView_ZimmergroesseZahl);
         textView_AnzahlStuehle = findViewById(R.id.textView_AnzahlStuehle);
