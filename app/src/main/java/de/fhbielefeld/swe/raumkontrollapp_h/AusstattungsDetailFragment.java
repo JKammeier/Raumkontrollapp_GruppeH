@@ -90,7 +90,7 @@ public class AusstattungsDetailFragment extends Fragment
             move.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(AusstattungsDetailFragment.this,second.class )
+                    startActivity(new Intent(MainActivity.this,RaumActivity.class));
                 }
             });
 

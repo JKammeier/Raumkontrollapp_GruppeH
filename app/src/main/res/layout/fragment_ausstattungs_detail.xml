@@ -101,9 +101,8 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
-            android:onClick="confirmBtnMove"
             android:text=" Bestätigen "
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/counterTxt"
