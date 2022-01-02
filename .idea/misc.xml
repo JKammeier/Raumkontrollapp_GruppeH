@@ -4,27 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.13958333333333334" />
-        <entry key="..\:/ServerRepos/app/src/main/res/layout/activity_main.xml" value="0.5541666666666667" />
-        <entry key="..\:/ServerRepos/app/src/main/res/layout/activity_raum.xml" value="0.5541666666666667" />
-        <entry key="..\:/ServerRepos/app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.5541666666666667" />
-        <entry key="..\:/ServerRepos/app/src/main/res/layout/fragment_ausstattungs_detail.xml" value="0.5" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_ausstattung_hinzu.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/activity_raum.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/content_raum.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.1" />
+        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.264" />
+        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_ausstattungs_detail.xml" value="0.2653985507246377" />
         <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/fragment_second.xml" value="0.14375" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_ausstattung_detail.xml" value="0.165" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.165" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_raum.xml" value="0.1" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/fragment_ausstattungs_detail.xml" value="0.165" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/khjbho.xml" value="0.1" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/popup.xml" value="0.165" />
-        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/popup_neuerRaum.xml" value="0.101185921958684" />
+        <entry key="..\:/Users/JannisKammeier/OneDrive - Fachhochschule Bielefeld/Semester_3_Wi21/Software-Engineering/Gruppe H/app/src/main/res/layout/popup.xml" value="0.13229166666666667" />
+        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_main.xml" value="0.108203125" />
+        <entry key="..\:/Users/cpaun/Desktop/Android Studio Projekte/Gruppe H/app/src/main/res/layout/activity_raum.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/ic_baseline_addchart_24.xml" value="0.14375" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.14375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/activity_raum.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.3577236034404989" />
+        <entry key="app/src/main/res/layout/activity_raum.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_ausstattung_hinzu.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_ausstattungs_detail.xml" value="0.25" />
       </map>
     </option>
@@ -34,12 +28,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.5385416666666667" />
-      </ProjectState>
-    </option>
   </component>
 </project>
