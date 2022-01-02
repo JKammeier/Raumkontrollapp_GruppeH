@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
     private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
 
+
+    private void showPopup(DocumentReference neuerRaum) {
+        PopupDialog dialog = new PopupDialog(this, neuerRaum);
+        dialog.show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
             Map<String, Object> dataToSave = new HashMap<String, Object>();
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
-            raumListeFirebase.document(zielRaumNr).collection("eigenschaftListe");
+            showPopup(raumListeFirebase.document(zielRaumNr));
+            raumListeFirebase.document(zielRaumNr).collection("ausstattung");
         }
 
         Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
