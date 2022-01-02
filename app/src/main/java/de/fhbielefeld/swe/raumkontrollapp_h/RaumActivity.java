@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -101,6 +102,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
                 ausstattungsListe.remove(position);
                 arrayAdapter.notifyDataSetChanged();
+                Toast.makeText(RaumActivity.this, "Ausstattung erfolgreich gelöscht", Toast.LENGTH_LONG).show();
 
                 return false;
             }
