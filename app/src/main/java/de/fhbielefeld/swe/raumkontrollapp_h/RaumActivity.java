@@ -3,11 +3,13 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -88,7 +90,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-                setContentView(R.layout.fragment_ausstattungs_detail);
+                getSupportFragmentManager().beginTransaction().add(R.id.linearLayout, new AusstattungHinzuFragment()).commit();
+                //setContentView(R.layout.fragment_ausstattungs_detail);
             }
         });
 
@@ -99,6 +102,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
                 ausstattungsListe.remove(position);
                 arrayAdapter.notifyDataSetChanged();
+                Toast.makeText(RaumActivity.this, "Ausstattung erfolgreich gelöscht", Toast.LENGTH_LONG).show();
 
                 return false;
             }
@@ -109,6 +113,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         {
             @Override
             public void onClick(View view) {
+                Log.d("Fehlersuche", "onClick in RaumActivity");
                 setContentView(R.layout.fragment_ausstattung_hinzu);
             }
         });

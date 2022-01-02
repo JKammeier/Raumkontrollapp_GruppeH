@@ -1,6 +1,7 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +24,6 @@ public class AusstattungHinzuFragment extends Fragment {
 
     private FragmentAusstattungHinzuBinding binding;
 
-    //private View view;
-
     private CollectionReference ausstattungsListe;
 
     private TextView raumNrTV;
@@ -35,41 +34,46 @@ public class AusstattungHinzuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = FragmentAusstattungHinzuBinding.inflate(inflater, container, false);
-        return binding.getRoot();
-    }
+        View root = binding.getRoot();
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        Log.d("Fehlersuche", "onCreateView in AusstattungHinzuFragment");
 
         ausstattungsListe = ((RaumActivity) getActivity()).getRaum().collection("ausstattung");
 
-        view = getView();
+        //this.view = view;
 
-        raumNrTV = view.findViewById(R.id.raumnummerTV);
+        raumNrTV = root.findViewById(R.id.raumnummerTV);
         //TextView th = view.findViewById(R.id.textView3Hinzu);
-        nameET = view.findViewById(R.id.nameHinzu);
-        anzahlET = view.findViewById(R.id.anzahlHinzu);
-        kommentarET = view.findViewById(R.id.kommentarHinzu);
-        hinzu = view.findViewById(R.id.buttonHinzu);
+        nameET = root.findViewById(R.id.nameHinzu);
+        anzahlET = root.findViewById(R.id.anzahlHinzu);
+        kommentarET = root.findViewById(R.id.kommentarHinzu);
+        hinzu = root.findViewById(R.id.buttonHinzu);
 
         raumNrTV.setText(((RaumActivity) getActivity()).getRaum().getId());
+
+        Log.d("vor onClick", nameET.toString());
 
         hinzu.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                Map<String, Object> dataToSave = new HashMap<String, Object>();
-                dataToSave.put("name", nameET.getText().toString());
-                dataToSave.put("anzahl", Integer.parseInt(anzahlET.getText().toString()));
-                dataToSave.put("zustand", kommentarET.getText().toString());
-                ausstattungsListe.document(nameET.getText().toString()).set(dataToSave);
+                Log.d("Fehlersuche", "onClick in AusstattungHinzuFragment");
+                Log.d("in onClick", "angekommen -----------------------------------------");
+                if (!nameET.getText().toString().equals("")) {
+                    Map<String, Object> dataToSave = new HashMap<String, Object>();
+                    dataToSave.put("name", nameET.getText().toString());
+                    //if (Integer.parseInt(anzahlET.getText().toString()) == 0 || Integer.parseInt(anzahlET.getText().toString()))
+                    dataToSave.put("anzahl", Integer.parseInt(anzahlET.getText().toString()));
+                    dataToSave.put("zustand", kommentarET.getText().toString());
+                    ausstattungsListe.document(nameET.getText().toString()).set(dataToSave);
 
-                // Vom ButtonHinzufügen  zurück zu Raumactivity
-                setContentView(R.layout.activity_raum);
+                    // Vom ButtonHinzufügen  zurück zu Raumactivity
+                    setContentView(R.layout.activity_raum);
+                }
             }
         });
+        return root;
     }
 
     @Override
@@ -78,10 +82,6 @@ public class AusstattungHinzuFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_ausstattung_hinzu);
     }
-
-    /*private TextView findViewById(int raumnummerHinzu) {
-        return null;
-    }*/
 
     private void setContentView(int fragment_ausstattung_hinzu) {
     }
