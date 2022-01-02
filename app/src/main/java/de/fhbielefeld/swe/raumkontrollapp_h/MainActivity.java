@@ -35,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText eingabeRaumNr;
     private ListView raumListView;
 
-
-    //private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
     private ArrayAdapter arrayAdapter;
 
@@ -47,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //raumListe = new ArrayList<Raum>();
         raumNrListe = new ArrayList<String>();
 
         buttonOpen = findViewById(R.id.ButtonOpen);
@@ -63,12 +60,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!eingabeRaumNr.getText().toString().equals("")) {
-                    //Raum aktuellerRaum = getRaum(eingabeRaumNr.getText().toString());
-                    //getRaeumeFirebase();
                     arrayAdapter.notifyDataSetChanged();
-                    //eingabeRaumNr.setText("");
 
-                    //enterRaum(aktuellerRaum)
                     enterRaum(eingabeRaumNr.getText().toString());
                 }
             }
@@ -95,14 +88,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    /*
-    private void enterRaum (Raum zielRaum) {
-        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-        raumAkt.putExtra("Raum", zielRaum);
-        startActivity(raumAkt);
-    }
-    */
 
     private void enterRaum (String zielRaumNr) {
         eingabeRaumNr.setText("");
@@ -133,25 +118,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(raumAkt);
     }
 
-    /*
-    public Raum getRaum (String raumNr) {
-        for (Raum aktuellerRaum : raumListe) {
-            if (aktuellerRaum.getRaumNr().equals(raumNr)) {
-                return aktuellerRaum;
-            }
-        }
-
-        Raum neuerRaum = new Raum(raumNr);
-        raumListe.add(neuerRaum);
-        raumNrListe.add(raumNr);
-        Map<String, Object> dataToSave = new HashMap<String, Object>();
-        dataToSave.put("raumNr", raumNr);
-        raumListeFirebase.document(raumNr).set(dataToSave);
-        raumListeFirebase.document(raumNr).collection("eigenschaftListe");
-        return neuerRaum;
-    }
-    */
-
     public void getRaeumeFirebase() {
         raumListeFirebase.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -164,6 +130,5 @@ public class MainActivity extends AppCompatActivity {
                 arrayAdapter.notifyDataSetChanged();
             }
         });
-
     }
 }
