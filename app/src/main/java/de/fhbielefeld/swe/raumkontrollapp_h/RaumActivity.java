@@ -33,7 +33,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayAdapter arrayAdapter;
 
     private Raum aktuellerRaum;
-    String prefNeueAusstattung = "NeueAussattung";
+    String prefNeueAusstattung = "NeueAusstattung";
 
     TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_AnzahlStuehle,
             textView_AnzahlTische, textView_Stuehle, textView_Tische,
@@ -44,7 +44,6 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityRaumBinding binding;
-
     private String raumNr;
 
     @Override

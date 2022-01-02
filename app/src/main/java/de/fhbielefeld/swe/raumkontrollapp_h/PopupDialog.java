@@ -43,7 +43,8 @@ public class PopupDialog extends Dialog {
             }
         });
 
-        button_NeuerRaum_Raumhinzufuegen.setOnClickListener(new View.OnClickListener() {
+        button_NeuerRaum_Raumhinzufuegen.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View view)
             {
