@@ -25,6 +25,21 @@
     <string name="geben_sie_bitte_die_raumnummer_ein_und_dr_cken_sie_unten_um_die_raumeigenschaften_zu_bearbeiten">Geben Sie bitte die Raumnummer ein und drücken sie unten um die Raumeigenschaften zu bearbeiten!</string>
     <string name="textview">TextView</string>
     <string name="Ausstattungen_listView"></string>
+    <string name="editText_NeuerRaum_Eigenschaft">20 m²</string>
+    <string name="textView_NeuerRaum_Zimmergroesse">Geben Sie hierfür die ungefähre Fläche des Zimmers ein.</string>
+    <string name="button_NeuerRaum_Raumhinzufuegen">Hinzufügen</string>
+    <string name="button_NeuerRaum_Raumhinzufuegen_abbrechen">Abbrechen</string>
+    <string name="button_popuptest">Popuptest</string>
+    <string name="textView_NeuerRaum_Einleitung">Dieser Raum existiert nicht. Möchtest du einen neuen erstellen?</string>
+
+
+
+
+
+
+
+
+
 
 
 

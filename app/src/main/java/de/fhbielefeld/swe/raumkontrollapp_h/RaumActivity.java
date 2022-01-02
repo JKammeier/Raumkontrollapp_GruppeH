@@ -52,7 +52,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        textView_Zimmergroesse = findViewById(R.id. textView_Zimmergroesse);
+        textView_Zimmergroesse = findViewById(R.id.textView_NeuerRaum_Zimmergroesse);
         textView_RaumnummerZahl = findViewById(R.id.textView_RaumnummerZahl);
         textView_ZimmergroesseZahl = findViewById(R.id.textView_ZimmergroesseZahl);
         textView_AnzahlStuehle = findViewById(R.id.textView_AnzahlStuehle);
@@ -91,6 +91,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
                 setContentView(R.layout.fragment_ausstattungs_detail);
             }
         });
+
+
 
         // Vom Button unten rechts zu Ausstattung_hinzufügen
         binding.fabAusstattungHinzufuegen.setOnClickListener(new View.OnClickListener()
@@ -175,7 +177,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
-        /*
+        /*getId
         switch (view.getId())
         {
             case R.id.fab_AusstattungHinzufuegen:

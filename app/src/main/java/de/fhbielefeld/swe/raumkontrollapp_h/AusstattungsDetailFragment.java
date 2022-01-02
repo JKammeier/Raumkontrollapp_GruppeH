@@ -1,3 +1,4 @@
+/*
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import android.os.Bundle;
@@ -42,3 +43,5 @@ public class AusstattungsDetailFragment extends Fragment {
     }
 
 }
+
+ */
