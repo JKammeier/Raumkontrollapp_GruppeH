@@ -89,8 +89,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, new AusstattungHinzuFragment()).commit();
-                //setContentView(R.layout.fragment_ausstattungs_detail);
+                setContentView(R.layout.fragment_ausstattungs_detail);
             }
         });
 
@@ -111,7 +110,6 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         {
             @Override
             public void onClick(View view) {
-                Log.d("Fehlersuche", "onClick in RaumActivity");
                 setContentView(R.layout.fragment_ausstattung_hinzu);
             }
         });
