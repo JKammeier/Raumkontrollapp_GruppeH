@@ -3,6 +3,7 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -88,7 +89,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-                setContentView(R.layout.fragment_ausstattungs_detail);
+                getSupportFragmentManager().beginTransaction().replace(R.id.linearLayout, new AusstattungHinzuFragment()).commit();
+                //setContentView(R.layout.fragment_ausstattungs_detail);
             }
         });
 
@@ -109,6 +111,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         {
             @Override
             public void onClick(View view) {
+                Log.d("Fehlersuche", "onClick in RaumActivity");
                 setContentView(R.layout.fragment_ausstattung_hinzu);
             }
         });
