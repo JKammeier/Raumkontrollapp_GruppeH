@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText eingabeRaumNr;
     private ListView raumListView;
 
+
     //private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
     private ArrayAdapter arrayAdapter;
