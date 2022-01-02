@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
             raumListeFirebase.document(zielRaumNr).collection("ausstattung");
             raumAkt.putExtra("raumNeu", true);
+
         } else {
             raumAkt.putExtra("raumNeu", false);
         }

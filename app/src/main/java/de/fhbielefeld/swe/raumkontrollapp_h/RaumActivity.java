@@ -1,6 +1,7 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -33,9 +34,7 @@ public class RaumActivity extends AppCompatActivity
     private ArrayList<String> ausstattungsListe;
     private ArrayAdapter arrayAdapter;
 
-    TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_AnzahlStuehle,
-            textView_AnzahlTische, textView_Stuehle, textView_Tische,
-            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
+    TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
     FloatingActionButton fab_AusstattungHinzufuegen;
     ListView listView;
 
@@ -121,7 +120,9 @@ public class RaumActivity extends AppCompatActivity
         {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.fragment_ausstattung_hinzu);
+                Intent hinzuAkt = new Intent(RaumActivity.this, AusstattungHinzuActivity.class);
+                hinzuAkt.putExtra("RaumNr", raum.getId());
+                startActivity(hinzuAkt);
             }
         });
     }
