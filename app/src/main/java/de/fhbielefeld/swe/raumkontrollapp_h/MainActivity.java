@@ -1,6 +1,7 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonOpen;
     private EditText eingabeRaumNr;
     private ListView raumListView;
+    private SwipeRefreshLayout swipeRefresh;
 
     private ArrayList<String> raumNrListe;
     private ArrayAdapter arrayAdapter;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         buttonOpen = findViewById(R.id.ButtonOpen);
         eingabeRaumNr = findViewById(R.id.EingabeRaumNr);
         raumListView = findViewById(R.id.RaumListView);
+        swipeRefresh = findViewById(R.id.swipeRefreshMain);
+
 
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, raumNrListe);
         raumListView.setAdapter(arrayAdapter);
@@ -87,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                raumNrListe.clear();
+                getRaeumeFirebase();
+
+                arrayAdapter.notifyDataSetChanged();
+                swipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     private void enterRaum (String zielRaumNr) {
