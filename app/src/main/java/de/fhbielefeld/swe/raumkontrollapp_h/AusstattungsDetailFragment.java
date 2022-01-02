@@ -86,13 +86,17 @@ public class AusstattungsDetailFragment extends Fragment
             resetBtn = (Button) findViewById(R.id.resetBtn);
             resetBtn.setOnClickListener(clickListener);
 
+
+ /*
             move = findViewById (R.id.confirmBtn);
             move.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(MainActivity.this,RaumActivity.class));
                 }
-            });
+            }
+            );
+  */
 
 
             initCounter();
@@ -124,7 +128,7 @@ public class AusstattungsDetailFragment extends Fragment
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.Button00.setOnClickListener(new View.OnClickListener() {
+        binding.confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(AusstattungsDetailFragment.this).navigate(R.id.action_AusstattungsDetailFragment_to_AusstattungHinzuFragment);
