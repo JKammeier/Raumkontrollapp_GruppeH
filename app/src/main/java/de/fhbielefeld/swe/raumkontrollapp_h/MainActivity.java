@@ -1,11 +1,13 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,51 +30,26 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonOpen, button_NeuerRaum_Raumhinzufuegen, button_NeuerRaum_Raumhinzufuegen_abbrechen,
-            button_popuptest;
-    EditText eingabeRaumNr, editText_NeuerRaum_Eigenschaft;
+    Button buttonOpen, button_popuptest;
+    EditText eingabeRaumNr;
     ListView raumListView;
     TextView textView_NeuerRaum_Zimmergroesse;
 
     //private ArrayList<Raum> raumListe;
     private ArrayList<String> raumNrListe;
     private ArrayAdapter arrayAdapter;
-    private CollectionReference raumListeFirebase =
-            FirebaseFirestore.getInstance().collection("raeume");
+    private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
 
 
-    private void showPopup() {
-        button_NeuerRaum_Raumhinzufuegen_abbrechen = (Button) findViewById(R.id.button_NeuerRaum_Raumhinzufuegen_abbrechen);
-        button_NeuerRaum_Raumhinzufuegen = (Button) findViewById(R.id.button_NeuerRaum_Raumhinzufuegen);
-        editText_NeuerRaum_Eigenschaft = (EditText) findViewById(R.id.editText_NeuerRaum_Eigenschaft);
-        Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.popup);
+    private void showPopup(DocumentReference neuerRaum) {
+        PopupDialog dialog = new PopupDialog(this, neuerRaum);
         dialog.show();
-
-        button_NeuerRaum_Raumhinzufuegen_abbrechen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                dialog.dismiss();
-            }
-        });
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        button_popuptest = findViewById(R.id.button_popuptest);
-        button_popuptest.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                showPopup();
-            }
-        });
-
 
         //raumListe = new ArrayList<Raum>();
         raumNrListe = new ArrayList<String>();
@@ -171,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
             Map<String, Object> dataToSave = new HashMap<String, Object>();
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
-            raumListeFirebase.document(zielRaumNr).collection("eigenschaftListe");
+            showPopup(raumListeFirebase.document(zielRaumNr));
+            raumListeFirebase.document(zielRaumNr).collection("ausstattung");
         }
 
         Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
