@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 raumNrListe.remove(position);
                 arrayAdapter.notifyDataSetChanged();
+                Toast.makeText(MainActivity.this, "Raum erfolgreich gelöscht", Toast.LENGTH_LONG).show();
 
                 return false;
             }
