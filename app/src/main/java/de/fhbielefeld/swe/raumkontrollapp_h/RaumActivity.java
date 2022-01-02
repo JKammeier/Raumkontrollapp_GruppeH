@@ -1,5 +1,6 @@
 package de.fhbielefeld.swe.raumkontrollapp_h;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -22,8 +23,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import de.fhbielefeld.swe.raumkontrollapp_h.databinding.ActivityRaumBinding;
+
 
 public class RaumActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -88,7 +89,9 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
             {
-                setContentView(R.layout.fragment_ausstattungs_detail);
+                Intent detailact = new Intent(RaumActivity.this,AusstattungDetailActivity.class);
+                detailact.putExtra("raumNr", raumNr);
+                startActivity(detailact);
             }
         });
 
@@ -121,7 +124,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         raum = FirebaseFirestore.getInstance().document("raeume/" + raumNr);
         //aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
         //textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
-        textView_RaumnummerZahl.setText(raum.getId());
+        textView_RaumnummerZahl.setText(raumNr);
         getEigenschaftenFirebase();
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);

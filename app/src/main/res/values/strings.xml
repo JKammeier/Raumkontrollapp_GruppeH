@@ -31,6 +31,12 @@
     <string name="button_NeuerRaum_Raumhinzufuegen_abbrechen">Abbrechen</string>
     <string name="button_popuptest">Popuptest</string>
     <string name="textView_NeuerRaum_Einleitung">Dieser Raum existiert nicht. Möchtest du einen neuen erstellen?</string>
+    <string name="editTextNumber_counter">Stückzahl eingeben</string>
+    <string name="editText_Kommentar"></string>
+
+
+
+
 
 
 </resources>
