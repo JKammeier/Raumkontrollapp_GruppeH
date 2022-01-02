@@ -121,7 +121,7 @@ public class RaumActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent hinzuAkt = new Intent(RaumActivity.this, AusstattungHinzuActivity.class);
-                hinzuAkt.putExtra("RaumNr", raum.getId());
+                hinzuAkt.putExtra("raumNr", raum.getId());
                 startActivity(hinzuAkt);
             }
         });
