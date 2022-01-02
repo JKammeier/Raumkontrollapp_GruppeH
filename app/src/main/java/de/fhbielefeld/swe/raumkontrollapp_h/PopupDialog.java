@@ -2,6 +2,7 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,19 +38,19 @@ public class PopupDialog extends Dialog {
 
         button_NeuerRaum_Raumhinzufuegen_abbrechen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
+                raum.delete();
                 dismiss();
             }
         });
 
         button_NeuerRaum_Raumhinzufuegen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Map<String, Object> dataToSave = new HashMap<String, Object>();
-                //dataToSave.put("zimmergroesse", editText_NeuerRaum_Eigenschaft.getText());
-                raum.set(dataToSave);
+                dataToSave.put("flaeche", Integer.parseInt(editText_NeuerRaum_Eigenschaft.getText().toString()));
+                raum.update(dataToSave);
+                dismiss();
             }
         });
     }

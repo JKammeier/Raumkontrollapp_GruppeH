@@ -3,6 +3,7 @@ package de.fhbielefeld.swe.raumkontrollapp_h;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,8 +38,7 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_AnzahlStuehle,
             textView_AnzahlTische, textView_Stuehle, textView_Tische,
-            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung,
-            textView_Zimmergroesse;
+            textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
     FloatingActionButton fab_AusstattungHinzufuegen;
     ListView listView;
 
@@ -53,7 +53,6 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        textView_Zimmergroesse = findViewById(R.id. textView_ZimmergroesseZahl);
         textView_RaumnummerZahl = findViewById(R.id.textView_RaumnummerZahl);
         textView_ZimmergroesseZahl = findViewById(R.id.textView_ZimmergroesseZahl);
         textView_AnzahlStuehle = findViewById(R.id.textView_AnzahlStuehle);
@@ -123,7 +122,26 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
         //aktuellerRaum = getIntent().getExtras().getParcelable("Raum");
         //textView_RaumnummerZahl.setText(aktuellerRaum.getRaumNr());
         textView_RaumnummerZahl.setText(raum.getId());
-        getEigenschaftenFirebase();
+
+        if (getIntent().getExtras().getBoolean("raumNeu")) {
+            showPopup(raum);
+        }
+
+
+        raum.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    try {
+                        textView_ZimmergroesseZahl.setText(documentSnapshot.get("flaeche").toString());
+                    } catch (Exception e) {
+                        Log.d("Exception", "Fläche holen");
+                    }
+                }
+            }
+        });
+
+        getAusstattungFirebase();
         //textView_AnzahlStuehle.setText(aktuellerRaum.anzahl_stuehle);
         //textView_AnzahlTische.setText(aktuellerRaum.anzahl_tische);
         //textView_ZimmergroesseZahl.setText(aktuellerRaum.zimmergroesse_zahl);
@@ -131,11 +149,16 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void showPopup(DocumentReference neuerRaum) {
+        PopupDialog dialog = new PopupDialog(this, neuerRaum);
+        dialog.show();
+    }
+
     public DocumentReference getRaum() {
         return raum;
     }
 
-    public void getEigenschaftenFirebase() {
+    public void getAusstattungFirebase() {
         raum.collection("ausstattung").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -147,6 +170,8 @@ public class RaumActivity extends AppCompatActivity implements View.OnClickListe
                 arrayAdapter.notifyDataSetChanged();
             }
         });
+
+
     }
 
     public void createDatabase()

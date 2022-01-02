@@ -42,12 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     private CollectionReference raumListeFirebase = FirebaseFirestore.getInstance().collection("raeume");
 
-
-    private void showPopup(DocumentReference neuerRaum) {
-        PopupDialog dialog = new PopupDialog(this, neuerRaum);
-        dialog.show();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,11 +107,15 @@ public class MainActivity extends AppCompatActivity {
     private void enterRaum (String zielRaumNr) {
         eingabeRaumNr.setText("");
         boolean existiert = false;
-        for (String nr: raumNrListe) {
+        for (String nr : raumNrListe) {
             if (nr.equals(zielRaumNr)) {
                 existiert = true;
+                break;
             }
         }
+
+        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
+        raumAkt.putExtra("RaumNr", zielRaumNr);
 
         if (!existiert) {
             raumNrListe.add(zielRaumNr);
@@ -126,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
             Map<String, Object> dataToSave = new HashMap<String, Object>();
             dataToSave.put("raumNr", zielRaumNr);
             raumListeFirebase.document(zielRaumNr).set(dataToSave);
-            showPopup(raumListeFirebase.document(zielRaumNr));
             raumListeFirebase.document(zielRaumNr).collection("ausstattung");
+            raumAkt.putExtra("raumNeu", true);
+        } else {
+            raumAkt.putExtra("raumNeu", false);
         }
 
-        Intent raumAkt = new Intent(MainActivity.this, RaumActivity.class);
-        raumAkt.putExtra("RaumNr", zielRaumNr);
         startActivity(raumAkt);
     }
 
