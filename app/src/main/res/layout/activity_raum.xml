@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".RaumActivity"
     android:id="@+id/raumActivity">
-<!--
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"<
-        android:theme="@style/Theme.Raumkontrollapp_H.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.Raumkontrollapp_H.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
--->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -113,11 +98,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ListView
-                android:id="@+id/Ausstattungen_listView"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefreshRaum"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+
+                <ListView
+                    android:id="@+id/Ausstattungen_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         </RelativeLayout>
 
 

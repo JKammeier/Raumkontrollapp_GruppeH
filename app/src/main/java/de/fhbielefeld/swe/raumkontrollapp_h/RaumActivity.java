@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +38,7 @@ public class RaumActivity extends AppCompatActivity
     TextView textView_RaumnummerZahl, textView_ZimmergroesseZahl, textView_Raumnummer, textView_Eigenschaften, textView_Ausstattung;
     FloatingActionButton fab_AusstattungHinzufuegen;
     ListView listView;
+    SwipeRefreshLayout swipeRefresh;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityRaumBinding binding;
@@ -55,6 +57,8 @@ public class RaumActivity extends AppCompatActivity
         textView_Eigenschaften = findViewById(R.id.textView_Eigenschaften);
         textView_Ausstattung = findViewById(R.id.textView_Ausstattung);
         fab_AusstattungHinzufuegen = findViewById(R.id.fab_AusstattungHinzufuegen);
+
+        swipeRefresh = findViewById(R.id.swipeRefreshRaum);
 
         textView_Eigenschaften.setPaintFlags(textView_Eigenschaften.getPaintFlags()
                 |Paint.UNDERLINE_TEXT_FLAG);
@@ -78,19 +82,7 @@ public class RaumActivity extends AppCompatActivity
             showPopup(raum);
         }
 
-        raum.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()) {
-                    try {
-                        textView_ZimmergroesseZahl.setText(documentSnapshot.get("flaeche").toString());
-                    } catch (Exception e) {
-                        Log.d("Exception", "Fläche holen");
-                    }
-                }
-            }
-        });
-
+        getFlaecheFirebase();
         getAusstattungFirebase();
 
         // Von ListView zu Ausstattung_detail
@@ -125,6 +117,19 @@ public class RaumActivity extends AppCompatActivity
                 startActivity(hinzuAkt);
             }
         });
+
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getFlaecheFirebase();
+
+                ausstattungsListe.clear();
+                getAusstattungFirebase();
+                arrayAdapter.notifyDataSetChanged();
+
+                swipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     private void showPopup(DocumentReference neuerRaum) {
@@ -132,8 +137,19 @@ public class RaumActivity extends AppCompatActivity
         dialog.show();
     }
 
-    public DocumentReference getRaum() {
-        return raum;
+    public void getFlaecheFirebase() {
+        raum.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()) {
+                    try {
+                        textView_ZimmergroesseZahl.setText(documentSnapshot.get("flaeche").toString());
+                    } catch (Exception e) {
+                        Log.d("Exception", "Fläche holen");
+                    }
+                }
+            }
+        });
     }
 
     public void getAusstattungFirebase() {
