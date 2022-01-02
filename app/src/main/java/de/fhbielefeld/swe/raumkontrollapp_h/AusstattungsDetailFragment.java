@@ -37,6 +37,39 @@ public class AusstattungsDetailFragment extends Fragment
 
     }
 
+   /* public class MainActivity extends AppCompatActivity {
+
+        TextView value;
+        int count =  0;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState){
+            {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+
+                value = (TextView) findViewById(R.id.tv_total);
+
+            }
+        }
+
+        public void increment (View v)
+        {
+            count++;
+            value.setText("" + count);
+
+        }
+
+        public void decrement(View v){
+            if  (count <= 0) count = 0;
+
+            else count--;
+            value.setText("" + count);}
+    }
+
+
+    */
+
 
 
     public class MainActivity extends AppCompatActivity {
