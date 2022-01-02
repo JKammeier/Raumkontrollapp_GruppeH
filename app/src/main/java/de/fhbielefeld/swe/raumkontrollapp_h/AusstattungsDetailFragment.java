@@ -19,6 +19,14 @@ import de.fhbielefeld.swe.raumkontrollapp_h.databinding.FragmentAusstattungsDeta
 public class AusstattungsDetailFragment extends Fragment
 {
 
+    TextView counterTxt;
+    Button minusBtn;
+    Button plusBtn;
+    Button resetBtn;
+    int counter;
+    Button move;
+
+
 
 
 
@@ -28,6 +36,8 @@ public class AusstattungsDetailFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
 
+
+
         binding = FragmentAusstattungsDetailBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
@@ -35,7 +45,120 @@ public class AusstattungsDetailFragment extends Fragment
 
 
 
+
+
+
+
+
+            private View.OnClickListener clickListener = new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    switch (view.getId()){
+                        case R.id.minusBtn:
+                            minusCounter();
+                            break;
+                        case R.id.plusBtn:
+                            plusCounter();
+                            break;
+                        case R.id.resetBtn:
+                            minusCounter();
+                            break;
+
+                    }
+                }
+
+            };
+
+
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+                counterTxt = (TextView) findViewById(R.id.counterTxt);
+                minusBtn = (Button) findViewById(R.id.minusBtn);
+                minusBtn.setOnClickListener(clickListener);
+                plusBtn = (Button) findViewById(R.id.plusBtn);
+                plusBtn.setOnClickListener(clickListener);
+                resetBtn = (Button) findViewById(R.id.resetBtn);
+                resetBtn.setOnClickListener(clickListener);
+
+
+ /*
+            move = findViewById (R.id.confirmBtn);
+            move.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(MainActivity.this,RaumActivity.class));
+                }
+            }
+            );
+  */
+
+
+                initCounter();
+            }
+
+            private void initCounter() {
+                counter = 0;
+                counterTxt.setText(counter+"");
+            }
+
+            private void plusCounter(){
+                counter++;
+                counterTxt.setText(counter +"");
+            }
+
+            private void minusCounter(){
+                counter--;
+                counterTxt.setText(counter+"");
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+   /* public class MainActivity extends AppCompatActivity {
+
+        TextView value;
+        int count =  0;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState){
+            {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
+
+                value = (TextView) findViewById(R.id.tv_total);
+
+            }
+        }
+
+        public void increment (View v)
+        {
+            count++;
+            value.setText("" + count);
+
+        }
+
+        public void decrement(View v){
+            if  (count <= 0) count = 0;
+
+            else count--;
+            value.setText("" + count);}
+    }
+
+
+    */
 
 
 
