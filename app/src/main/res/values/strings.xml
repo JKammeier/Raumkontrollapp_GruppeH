@@ -26,11 +26,11 @@
     <string name="textview">TextView</string>
     <string name="Ausstattungen_listView"></string>
     <string name="editText_NeuerRaum_Eigenschaft">Fläche in m²</string>
-    <string name="textView_NeuerRaum_Zimmergroesse">Geben Sie hierfür die ungefähre Fläche des Zimmers ein.</string>
+    <string name="textView_NeuerRaum_Zimmergroesse">Bitte die Größe des Raumes angeben.</string>
     <string name="button_NeuerRaum_Raumhinzufuegen">Hinzufügen</string>
     <string name="button_NeuerRaum_Raumhinzufuegen_abbrechen">Abbrechen</string>
     <string name="button_popuptest">Popuptest</string>
-    <string name="textView_NeuerRaum_Einleitung">Dieser Raum existiert nicht. Möchtest du einen neuen erstellen?</string>
+    <string name="textView_NeuerRaum_Einleitung">Dieser Raum wird neu angelegt.</string>
     <string name="editTextNumber_counter">Anzahl</string>
     <string name="editText_Kommentar"></string>
 

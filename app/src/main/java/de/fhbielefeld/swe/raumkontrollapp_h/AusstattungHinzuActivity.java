@@ -72,7 +72,7 @@ public class AusstattungHinzuActivity extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(AusstattungHinzuActivity.this, "Name und Anzahl sind Pflichtfelder", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AusstattungHinzuActivity.this, "Name und Anzahl sind Pflichtfelder!", Toast.LENGTH_LONG).show();
                 }
             }
         });
