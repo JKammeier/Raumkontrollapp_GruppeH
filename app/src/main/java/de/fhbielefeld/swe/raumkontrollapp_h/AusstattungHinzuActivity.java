@@ -9,11 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AusstattungHinzuActivity extends AppCompatActivity {
@@ -49,19 +54,39 @@ public class AusstattungHinzuActivity extends AppCompatActivity {
             public void onClick(View v)
             {
                 if (!nameET.getText().toString().equals("")) {
-                    Map<String, Object> dataToSave = new HashMap<String, Object>();
-                    dataToSave.put("name", nameET.getText().toString());
-                    //if (Integer.parseInt(anzahlET.getText().toString()) == 0 || Integer.parseInt(anzahlET.getText().toString()))
-                    dataToSave.put("anzahl", Integer.parseInt(anzahlET.getText().toString()));
-                    dataToSave.put("kommentar", kommentarET.getText().toString());
-                    ausstattungsListe.document(nameET.getText().toString()).set(dataToSave);
-
-                    // Vom ButtonHinzufügen  zurück zu Raumactivity
-                    Intent raumAct = new Intent(AusstattungHinzuActivity.this, RaumActivity.class);
-                    raumAct.putExtra("raumNr", raumNr);
-                    startActivity(raumAct);
+                    ausstattungsListe.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            boolean neu = true;
+                            List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot doc: snapshotList) {
+                                if (nameET.getText().toString().equals(doc.getId())) {
+                                    neu = false;
+                                }
+                            }
+                            if (neu) {
+                                gegenstandHinzufuegen();
+                            } else {
+                                Toast.makeText(AusstattungHinzuActivity.this, "Ein Gegenstand mit diesem Namen existiert bereits!", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
                 }
             }
         });
+    }
+
+    private void gegenstandHinzufuegen() {
+        Map<String, Object> dataToSave = new HashMap<String, Object>();
+        dataToSave.put("name", nameET.getText().toString());
+        //if (Integer.parseInt(anzahlET.getText().toString()) == 0 || Integer.parseInt(anzahlET.getText().toString()))
+        dataToSave.put("anzahl", Integer.parseInt(anzahlET.getText().toString()));
+        dataToSave.put("kommentar", kommentarET.getText().toString());
+        ausstattungsListe.document(nameET.getText().toString()).set(dataToSave);
+
+        // Vom ButtonHinzufügen  zurück zu Raumactivity
+        Intent raumAct = new Intent(AusstattungHinzuActivity.this, RaumActivity.class);
+        raumAct.putExtra("raumNr", raumNr);
+        startActivity(raumAct);
     }
 }
