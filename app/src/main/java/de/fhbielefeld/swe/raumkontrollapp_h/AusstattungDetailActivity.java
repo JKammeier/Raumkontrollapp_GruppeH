@@ -32,9 +32,13 @@ public class AusstattungDetailActivity extends AppCompatActivity
 
     private DocumentReference gegenstand;
 
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainAct = new Intent(AusstattungDetailActivity.this, RaumActivity.class);
+        mainAct.putExtra("raumNr", raumNr);
+        startActivity(mainAct);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

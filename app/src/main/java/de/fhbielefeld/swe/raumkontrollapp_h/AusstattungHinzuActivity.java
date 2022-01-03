@@ -32,6 +32,14 @@ public class AusstattungHinzuActivity extends AppCompatActivity {
     private Button hinzu;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainAct = new Intent(AusstattungHinzuActivity.this, RaumActivity.class);
+        mainAct.putExtra("raumNr", raumNr);
+        startActivity(mainAct);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ausstattung_hinzu);

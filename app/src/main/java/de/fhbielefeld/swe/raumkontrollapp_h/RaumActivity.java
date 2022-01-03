@@ -45,6 +45,13 @@ public class RaumActivity extends AppCompatActivity
     private String raumNr;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent mainAct = new Intent(RaumActivity.this, MainActivity.class);
+        startActivity(mainAct);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRaumBinding.inflate(getLayoutInflater());
@@ -132,6 +139,8 @@ public class RaumActivity extends AppCompatActivity
                 swipeRefresh.setRefreshing(false);
             }
         });
+
+
     }
 
     private void showPopup(DocumentReference neuerRaum) {
