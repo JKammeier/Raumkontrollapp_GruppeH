@@ -145,7 +145,7 @@ public class RaumActivity extends AppCompatActivity
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()) {
                     try {
-                        textView_ZimmergroesseZahl.setText(documentSnapshot.get("flaeche").toString());
+                        textView_ZimmergroesseZahl.setText(documentSnapshot.get("flaeche").toString() + " m²");
                     } catch (Exception e) {
                         Log.d("Exception", "Fläche holen");
                     }
