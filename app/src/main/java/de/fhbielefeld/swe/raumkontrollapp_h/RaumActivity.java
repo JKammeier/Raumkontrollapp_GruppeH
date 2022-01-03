@@ -143,6 +143,8 @@ public class RaumActivity extends AppCompatActivity
 
     }
 
+
+
     private void showPopup(DocumentReference neuerRaum) {
         PopupDialog dialog = new PopupDialog(this, neuerRaum);
         dialog.show();
